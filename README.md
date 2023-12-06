@@ -23,5 +23,9 @@ The purpose of this React Single Page Application (SPA) is to deliver an engagin
 - Started server to ensure correct build
 - Created directories in the src directory: assets, components, pages, and `__tests__`
 - Created basic functional components in App.js and components/pages directories
+- Added styling and routing dependencies (reactstrap, bootstrap, react-router-dom)
+- Modified application to allow navigation
+  - Header and Footer: persistent
+  - Home, Joke, Recipe, NotFound: navigation  
 
 ## Testing Process  

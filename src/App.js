@@ -1,11 +1,24 @@
 import React from "react"
+import { Routes, Route } from "react-router-dom"
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import Home from "./pages/Home"
+import Joke from "./pages/Joke"
+import NotFound from "./pages/NotFound"
+import Recipe from "./pages/Recipe"
 import "./App.css"
 
 const App = () => {
   return(
     <>
-      <h1>❄️ Fa-la-la-la ❄️ a Joke or Recipe for Ya ❄️</h1>
-      <h2>Click Frosty the Funnyman for instant hilarity or Hotpot ChaCha for a taste bud fiesta! Your click, your delight - let the festivities begin!</h2>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/joke" element={<Joke />} />
+        <Route path="/recipe" element={<Recipe />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
     </>
   )
 }
