@@ -26,6 +26,8 @@ The purpose of this React Single Page Application (SPA) is to deliver an engagin
 - Added styling and routing dependencies (reactstrap, bootstrap, react-router-dom)
 - Modified application to allow navigation
   - Header and Footer: persistent
-  - Home, Joke, Recipe, NotFound: navigation  
+  - Home, Joke, Recipe, NotFound: navigation 
+- Created mock data for jokes
+ 
 
 ## Testing Process  
