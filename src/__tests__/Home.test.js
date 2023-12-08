@@ -1,22 +1,25 @@
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import App from './App';
+import Home from '../pages/Home';
 
-describe("<App />", () => {
+describe("<Home />", () => {
 
   beforeEach( () => {
     render(
       <BrowserRouter>
-        <App />
+        <Home />
       </BrowserRouter>
     )}
   )
-
+  
   it("renders without crashing", () => {
   })
 
   it('renders jokes link', () => {
-    const linkElement = screen.getByText(/random jokes/i);
+  
+    const linkElement = screen.getByRole('button', {
+      name: /joyful snowman, complete with/i
+    })
     expect(linkElement).toBeInTheDocument();
   })
 })
