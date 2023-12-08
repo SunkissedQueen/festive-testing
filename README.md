@@ -7,7 +7,7 @@ The purpose of this React Single Page Application (SPA) is to deliver an engagin
 - [Application Process](#application-process)
 - [Testing Process](#testing-process)
 - [Blockers](#blockers)
-- [Ice Box](#ice-box)
+- [Ice Box](#ice-box) ***Pending***
 
 ## Resources  
 - Knowledge and skills acquired from [LEARN Academy](https://learnacademy.org/)
@@ -39,8 +39,11 @@ The purpose of this React Single Page Application (SPA) is to deliver an engagin
 ## Testing Process 
 1. Setup testing environment
   - This application was built using `yarn create react-app`; therefore, Jest and React Testing Library (RTL) are installed automatically.  
-  ***NOTE: Follow applicable commands from the RTL site to add testing environment for applications without RTL configuration. Commands for Jest can be found on [Jest documentation](https://jestjs.io/docs/getting-started). Both are needed due to the separation of responsibilities: Jest runs the test cases of each test file. RTL provides methods that will help evaluate the DOM elements from the user's perspective. *** 
+
+  ***NOTE: Follow applicable commands from the RTL site to add testing environment for applications without RTL configuration. Commands for Jest can be found on [Jest documentation](https://jestjs.io/docs/getting-started). Both are needed due to the separation of responsibilities: Jest runs the test cases of each test file. RTL provides methods that will help evaluate the DOM elements from the user's perspective.***  
+
 2. Create test files with the following naming convention `ComponentName.test.js` under the `__tests__`
+
 3. Test file structure
 ```js
   // imports
@@ -48,9 +51,11 @@ The purpose of this React Single Page Application (SPA) is to deliver an engagin
   // it method (test case - description of what feature you are testing in the component) nested within describe block and contains queries methods from RTL
   // expect method (assertion - which will either be a successful (pass-green) or erroneous (fail-red) outcome) nested within it block
 ```
-***NOTE: Initially, tests can be stubbed with just describe and it methods as to create a testing task/to-do list.***
-4. Run `yarn test` to see results of test
-5. Reference any error codes to provide code that will make the test pass
+***NOTE: Initially, tests can be stubbed with just describe and it methods as to create a testing task/to-do list.***  
+
+4. Run `yarn test` to see results of test    
+
+5. Reference any error codes to provide code that will make the test pass  
 
 ## RTL Methods
 
@@ -66,18 +71,18 @@ The purpose of this React Single Page Application (SPA) is to deliver an engagin
 Testing Library provides queries as methods for locating elements on the page. These queries come in various types, such as "get," "find," and "query." The distinction among them lies in whether the query throws an error when no element is found or if it returns a Promise and retries the operation.
 
 ##### Order of priority
-  1. Queries Accessible to Everyone:
-    - getByRole: query every element that is exposed in the accessibility tree. This query is often used with the name option such as getByRole('button', {name: /submit/i}).
-    - getByLabelText: query elements on a form. 
-    - getByPlaceholderText: 
-    - getByText: query non-interactive elements (like divs, spans, and paragraphs).
+  1. Queries Accessible to Everyone:  
+    - getByRole: query every element that is exposed in the accessibility tree. This query is often used with the name option such as getByRole('button', {name: /submit/i}).   
+    - getByLabelText: query elements on a form.   
+    - getByPlaceholderText: query the input field of a form element.  
+    - getByText: query non-interactive elements (like divs, spans, and paragraphs).  
     - getByDisplayValue: query the current value of an element on a filled-in form.
-  2. Semantic Queries:
-    - getByAltText: query element that has alt attribute (img, area, input, and any custom element).
+  2. Semantic Queries:  
+    - getByAltText: query element that has alt attribute (img, area, input, and any custom element).  
     - getByTitle: query element that has title attribute.
-  3. Test IDs:
-    - getByTestId: last resort query because the id attribute is accessible by the user.
-  ***NOTE: All queries can be extended with `All` to search for multiple elements. `getAllByRole("button")`. This query will return an array of elements. ***
+  3. Test IDs:  
+    - getByTestId: last resort query because the id attribute is accessible by the user.  
+  ***NOTE: All queries can be extended with `All` to search for multiple elements. `getAllByRole("button")`. This query will return an array of elements.***
 
 ### Fire Event
 
@@ -103,13 +108,13 @@ Testing Library provides queries as methods for locating elements on the page. T
 
 #### screen.debug()
 - `screen.debug()` supports the following
-  1. debugging the document: `screen.debug()` after a render call
-  2. a single element: 
+1. debugging the document: `screen.debug()` after a render call  
+2. a single element:  
 ```js
     const button = screen.getByRole("button", {name: /submit/i})
     screen.debug(button)
-```
-  3. an array of elements
+```  
+  3. an array of elements:  
 ```js
     const buttons = screen.getAllByRole("button")
     screen.debug(buttons)
@@ -132,7 +137,7 @@ Testing Playground is an interactive sandbox that exposes visual feedback to inc
 
 ## Blockers
 1. Change header logo when hovering over it (solved):
-  - After confusion with search results, I type the following prompt in ChatGPT `how to change image when hovering with css inline styling for a react component`. The recommendation lead to a followup prompt `without functions`. The results showed an example that changed the height and width by abstracting the style value using an event handler.
+  - After confusion with search results, I typed the following prompt in ChatGPT `how to change image when hovering with css inline styling for a react component`. The recommendation lead to a followup prompt `without functions`. The results showed an example that changed the height and width by abstracting the style value using an event handler.
   - Solution to change image:
     - Store initial styling for logo in a variable
     - Use the onMouseOver event handler, activated when the user's mouse pointer hovers over the image, to dynamically switch the src path to a new image. Achieve this by directly updating the src attribute of the image using e.target.src.
