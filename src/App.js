@@ -11,9 +11,7 @@ import "./App.css"
 
 const App = () => {
 
-  const [jokes, setJokes] = useState("Click here to see a random joke")
-  console.log("mockJokes: ", mockJokes)
-  console.log("jokes: ", jokes)
+  const [jokes, setJokes] = useState(mockJokes)
 
   return(
     <>

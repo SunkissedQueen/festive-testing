@@ -17,6 +17,8 @@ The purpose of this React Single Page Application (SPA) is to deliver an engagin
 - [React Testing Library](https://testing-library.com/docs/)
 - Images and videos - [Canva](https://www.canva.com/)
 - Grammar consultant - [ChatGPT](https://chat.openai.com/)
+- [Unit Testing](https://medium.com/@natnael.awel/react-js-unit-testing-best-practices-and-tools-5454a01326ea)
+- [ARIA Roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#roles)
 
 ## Application Process  
 - Created empty github repo
@@ -34,7 +36,83 @@ The purpose of this React Single Page Application (SPA) is to deliver an engagin
 - Used styling UI components from reactstrap and navigation components from react-router-dom for Header 
 - Styled UI for Footer, Home, and NotFound
  
-## Testing Process  
+## Testing Process 
+1. Setup testing environment
+  - This application was built using `yarn create react-app`; therefore, Jest and React Testing Library (RTL) are installed automatically.  
+  ***NOTE: Follow applicable commands from the RTL site to add testing environment for applications without RTL configuration. Commands for Jest can be found on [Jest documentation](https://jestjs.io/docs/getting-started). Both are needed due to the separation of responsibilities: Jest runs the test cases of each test file. RTL provides methods that will help evaluate the DOM elements from the user's perspective. *** 
+2. Create test files with the following naming convention `ComponentName.test.js` under the `__tests__`
+3. Test file structure
+```js
+  // imports
+  // describe method: test suite - telling us what component we are testing
+  // it method (test case - description of what feature you are testing in the component) nested within describe block and contains queries methods from RTL
+  // expect method (assertion - which will either be a successful (pass-green) or erroneous (fail-red) outcome) nested within it block
+```
+***NOTE: Initially, tests can be stubbed with just describe and it methods as to create a testing task/to-do list.***
+4. Run `yarn test` to see results of test
+5. Reference any error codes to provide code that will make the test pass
+
+## RTL Methods
+
+### Render
+- method to virtually render a React component into a testing environment
+- takes the component call as an argument, which is a render call
+
+### Screen
+- object that represents the current HTML rendered on the DOM
+- Coupled with query methods, `screen` allows you to select DOM elements and make assertions about them.
+
+### Queries  
+Testing Library provides queries as methods for locating elements on the page. These queries come in various types, such as "get," "find," and "query." The distinction among them lies in whether the query throws an error when no element is found or if it returns a Promise and retries the operation.
+
+##### Order of priority
+  1. Queries Accessible to Everyone:
+    - getByRole: query every element that is exposed in the accessibility tree. This query is often used with the name option such as getByRole('button', {name: /submit/i}).
+    - getByLabelText: query elements on a form. 
+    - getByPlaceholderText: 
+    - getByText: query non-interactive elements (like divs, spans, and paragraphs).
+    - getByDisplayValue: query the current value of an element on a filled-in form.
+  2. Semantic Queries:
+    - getByAltText: query element that has alt attribute (img, area, input, and any custom element).
+    - getByTitle: query element that has title attribute.
+  3. Test IDs:
+    - getByTestId: last resort query because the id attribute is accessible by the user.
+  ***NOTE: All queries can be extended with `All` to search for multiple elements. `getAllByRole("button")`. This query will return an array of elements. ***
+
+### Fire Event
+
+### User Event
+
+### Debugging
+
+#### screen.debug()
+- `screen.debug()` supports the following
+  1. debugging the document: `screen.debug()` after a render call
+  2. a single element: 
+```js
+    const button = screen.getByRole("button", {name: /submit/i})
+    screen.debug(button)
+```
+  3. an array of elements
+```js
+    const buttons = screen.getAllByRole("button")
+    screen.debug(buttons)
+```
+- run `yarn test` to see the rendered output of RTL's render in the terminal
+
+#### testing-playground  
+Testing Playground is an interactive sandbox that exposes visual feedback to include the rendered html of your current DOM, the DOM, and different queries about those DOM elements.
+- `screen.logTestingPlaygroundURL()`: method which logs and returns a URL that can be opened in a browser and supports the following:
+1. log the entire document to testing-playground
+```js
+  screen.logTestingPlaygroundURL()
+```
+2. log a single element
+```js
+  const button = screen.getByRole("button", {name: /submit/i})
+  screen.logTestingPlaygroundURL(button)
+```
+- run `yarn test` to see the playground URL that can be opened in a browser
 
 ## Blockers
 1. Change header logo when hovering over it (solved):
