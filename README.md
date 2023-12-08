@@ -82,6 +82,22 @@ Testing Library provides queries as methods for locating elements on the page. T
 ### Fire Event
 
 ### User Event
+- Import userEvent from testing library
+```js
+  import userEvent from "@testing-library/user-event";
+```
+- Add async to call back function for userEvent
+```js
+  it("navigates to the jokes page", async () => { ... }
+```
+- Add await to allow redirect to happen after clicking link
+```js
+  await userEvent.click(linkElement)
+```
+- Use location.pathname to display the current url  
+```js
+  expect(location.pathname).toEqual('/joke')
+```
 
 ### Debugging
 
