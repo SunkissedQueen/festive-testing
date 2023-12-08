@@ -19,6 +19,8 @@ The purpose of this React Single Page Application (SPA) is to deliver an engagin
 - Grammar consultant - [ChatGPT](https://chat.openai.com/)
 - [Unit Testing](https://medium.com/@natnael.awel/react-js-unit-testing-best-practices-and-tools-5454a01326ea)
 - [ARIA Roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#roles)
+- [Overview of RTL](https://blog.logrocket.com/using-react-testing-library-debug-method/#anoverviewofreacttestinglibrary)
+- [Jest DOM Matchers](https://github.com/testing-library/jest-dom#custom-matchers)
 
 ## Application Process  
 - Created empty github repo
@@ -134,6 +136,14 @@ Testing Playground is an interactive sandbox that exposes visual feedback to inc
   screen.logTestingPlaygroundURL(button)
 ```
 - run `yarn test` to see the playground URL that can be opened in a browser
+
+## Jest Matchers  
+Because this application used `yarn create react-app`, the jest-dom library is already installed. This library provides a set of custom jest matchers that you can use for the assertion statements. Instructions to install jest-dom on other projects are enclosed on the jest-dom site. Here are a few custom matchers:  
+- toBeInTheDocument(): assert whether an element is present in the document or not.  
+- toBeVisible(): assert if an element is currently visible to the user.  
+- toHaveAttribute("attribute", "value"): assert whether the given element has an attribute or not.  
+- toHaveClass("className"): assert the given element has certain classes within its class attribute.  
+- toBeChecked(): assert whether the given checkbox, radio, or switch element is checked.  
 
 ## Blockers
 1. Change header logo when hovering over it (solved):
