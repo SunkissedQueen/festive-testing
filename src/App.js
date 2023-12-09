@@ -10,15 +10,23 @@ import mockJokes from "./mockJokes"
 import "./App.css"
 
 const App = () => {
-
-  const [jokes, setJokes] = useState(mockJokes)
-
+  const [laughter, setLaughter] = useState(mockJokes[0])
+  const handleLaughter = () => {
+    const randomNum =  Math.floor(Math.random() * mockJokes.length)
+    setLaughter(mockJokes[randomNum])
+  }
   return(
     <>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/joke" element={<Joke />} />
+        <Route 
+          path="/joke" 
+          element={<Joke 
+            laughter={laughter} 
+            handleLaughter={handleLaughter} 
+          />} 
+        />
         <Route path="/recipe" element={<Recipe />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

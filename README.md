@@ -11,6 +11,7 @@ The purpose of this React Single Page Application (SPA) is to deliver an engagin
 
 ## Resources  
 - Knowledge and skills acquired from [LEARN Academy](https://learnacademy.org/)
+- Resource that I frequent - [W3Schools](https://www.w3schools.com/)
 - [React Router Dom](https://reactrouter.com/en/main)
 - [Reactstrap](https://reactstrap.github.io/?path=/story/home-installation--page)
 - [Bootstrap](https://getbootstrap.com/)
@@ -22,6 +23,7 @@ The purpose of this React Single Page Application (SPA) is to deliver an engagin
 - [Overview of RTL](https://blog.logrocket.com/using-react-testing-library-debug-method/#anoverviewofreacttestinglibrary)
 - [Jest DOM Matchers](https://github.com/testing-library/jest-dom#custom-matchers)
 - [Lemon Blueberry Dutch Baby Recipe](https://alexandracooks.com/2023/04/22/lemon-blueberry-dutch-baby/)
+- [Text Overlay on Video](https://www.codewithfaraz.com/content/207/create-full-screen-video-with-text-overlay-using-html-and-css)
 
 ## Application Process  
 - Created empty github repo
@@ -87,7 +89,7 @@ Testing Library provides queries as methods for locating elements on the page. T
     - getByTestId: last resort query because the id attribute is accessible by the user.  
   ***NOTE: All queries can be extended with `All` to search for multiple elements. `getAllByRole("button")`. This query will return an array of elements.***
 
-### Fire Event
+### Fire Event ***Pending***
 
 ### User Event
 - Import userEvent from testing library
@@ -153,3 +155,17 @@ Because this application used `yarn create react-app`, the jest-dom library is a
     - Store initial styling for logo in a variable
     - Use the onMouseOver event handler, activated when the user's mouse pointer hovers over the image, to dynamically switch the src path to a new image. Achieve this by directly updating the src attribute of the image using e.target.src.
     - Use the onMouseOut event handler, activated when the user's mouse pointer leaves the area of the image, to dynamically switch the src path back to the original image. Achieve this by directly updating the src attribute of the image using e.target.src.
+
+2. Video as background (solved):
+  - When the video was uploaded as a mov file, it would only display as a static image. After researching on W3Schools for video html syntax, I noticed that the file on the example and type attribute had mp4.
+  - Solution rename file and use video and source html tags:
+    - Rename file with `.mp4` extension
+    - Use video html tag with autoplay, loop, width, and height attributes
+    - Nested source html tag with src and type attributes
+    - External Css to make the video cover the full screen
+
+3. Text to appear in front of the video (Need to see my jokes - solved):
+  - In the excitement to have a video as the background,  I totally forgot to ensure the jokes would render with this setup. Answer: NO!!!! However, research, troubleshooting, debugging through the wonderful Google search engine lead me to an article with some helpful tips.
+  - Solution use css to establish the text as the top layer of the page by using the transform property to modify the position of the text with the translate value to move the text higher on upon the Y axis.
+
+
