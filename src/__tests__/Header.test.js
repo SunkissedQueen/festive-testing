@@ -39,11 +39,11 @@ describe("<Header />", () => {
     // hover
     await userEvent.hover(logoElement)
     expect(location.pathname).toEqual("/joke")
-    expect(logoElement).toHaveAttribute("src", "http://localhost:3000/static/media/teal-fest.58ae1faa20790d2d29ac.png")
+    expect(logoElement).toHaveAttribute("src", "teal-fest.png")
     expect(logoElement).toHaveAttribute("alt", "two words festive testing written in black cursive font on separate lines and aligned to the left")
     // not hovering
     await userEvent.unhover(logoElement)
-    expect(logoElement).toHaveAttribute("src", "http://localhost:3000/static/media/lime-fest.5bc60668b5cd7d99cceb.png")
+    expect(logoElement).toHaveAttribute("src", "lime-fest.png")
     expect(logoElement).toHaveAttribute("alt", "two words festive testing written in black cursive font on separate lines and aligned to the left")
   })
 })
