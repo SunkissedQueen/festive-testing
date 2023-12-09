@@ -67,3 +67,10 @@ footer {
   padding: 30vh 10vh;
   width: 100vw;
 }
+
+/* line items */
+.line-items {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}

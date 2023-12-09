@@ -2,13 +2,14 @@ import React from "react"
 import { Nav, NavItem } from "reactstrap"
 import { NavLink } from "react-router-dom"
 import limeFest from "../assets/lime-fest.png"
+import tealFest from "../assets/teal-fest.png"
 
 const Header = () => {
 
   const imageStyle = {
     width: '100px', // Set your initial width
-    height: '40px', // Set your initial height
-    transition: '0.3s', // Optional: Add a smooth transition effect
+    height: '45px', // Set your initial height
+    transition: '0.3s', // Add a smooth transition effect
   }
 
   return(

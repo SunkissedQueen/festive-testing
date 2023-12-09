@@ -21,6 +21,7 @@ The purpose of this React Single Page Application (SPA) is to deliver an engagin
 - [ARIA Roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#roles)
 - [Overview of RTL](https://blog.logrocket.com/using-react-testing-library-debug-method/#anoverviewofreacttestinglibrary)
 - [Jest DOM Matchers](https://github.com/testing-library/jest-dom#custom-matchers)
+- [Lemon Blueberry Dutch Baby Recipe](https://alexandracooks.com/2023/04/22/lemon-blueberry-dutch-baby/)
 
 ## Application Process  
 - Created empty github repo
