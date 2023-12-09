@@ -1,5 +1,6 @@
 import React from "react"
 import { CardGroup, CardHeader, Card, CardBody, CardTitle } from "reactstrap"
+
 const Recipe = () => {
   return(
     <main className="content-position">

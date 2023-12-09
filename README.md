@@ -1,6 +1,6 @@
 # Festive Testing App  
 
-The purpose of this React Single Page Application (SPA) is to deliver an engaging experience with a dynamic joke randomizer and a delicious Dutch baby recipe. This refreshing break filled with laughter demonstrates React's ability to present detailed and interactive content. To ensure reliability and functionality, I've enlisted the help of the enclosed React Testing Library (RTL). This superhero sidekick ensures this web application work as intended. Whether you're clicking for a new joke or exploring a mouth-watering recipe, the React Testing Library is behind the scenes, making sure the app responds correctly and that the joke randomizer and recipe components shine without hiccups!
+The purpose of this React Application is to deliver an engaging experience with a dynamic joke randomizer and a delicious Dutch baby recipe. This laughter-filled and decadent approach demonstrates React's ability to present detailed and interactive content. To ensure reliability and functionality of this application, I've enlisted the help of the enclosed Jest and React Testing Library (RTL). This superhero and its sidekick ensure this web application works as intended. Whether you're clicking for a new joke or exploring a mouth-watering recipe, the both Jest and the React Testing Library are behind the scenes, making sure the app responds correctly and that the joke randomizer and recipe components shine without hiccups!
 
 ## Table of Contents
 - [Resources](#resources)
@@ -80,23 +80,26 @@ Testing Library provides queries as methods for locating elements on the page. T
 
 ##### Order of priority
   1. Queries Accessible to Everyone:  
-    - getByRole: query every element that is exposed in the accessibility tree. This query is often used with the name option such as getByRole('button', {name: /submit/i}).   
+    - getByRole: query every element that is exposed in the accessibility tree.   
     - getByLabelText: query elements on a form.   
     - getByPlaceholderText: query the input field of a form element.  
-    - getByText: query non-interactive elements (like divs, spans, and paragraphs).  
+    - getByText: query non-interactive elements.  
     - getByDisplayValue: query the current value of an element on a filled-in form.
   2. Semantic Queries:  
-    - getByAltText: query element that has alt attribute (img, area, input, and any custom element).  
+    - getByAltText: query element that has alt attribute.  
     - getByTitle: query element that has title attribute.
   3. Test IDs:  
-    - getByTestId: last resort query because the id attribute is accessible by the user.  
+    - getByTestId: last resort query because the id attribute is not accessible by the user.  
   ***NOTE: All queries can be extended with `All` to search for multiple elements. `getAllByRole("button")`. This query will return an array of elements.***
 
 ### APIs
-- The APIs (userEvent and fireEvent) are used to simulate user interactions. However, the userEvent mimics the actual browser behavior more closely than the fireEvent. In my experience, I prefer to use fireEvent with an input field and then make assertions to ensure that the React state has been updated as expected.   
+- The APIs (userEvent and fireEvent) are used to simulate user interactions. However, the userEvent mimics the actual browser behavior more closely than the fireEvent. In my experience, I prefer to use fireEvent with an input field and then make assertions to ensure that the React state has been updated as expected.  
+
 #### Fire Event <mark>***Pending***</mark>  
 - No examples currently available on this project.
-#### User Event
+
+#### User Event  
+***Enclosed example is evaluating that the url changes when a navigation link is clicked***
 - Import userEvent from testing library
 ```js
   import userEvent from "@testing-library/user-event";
@@ -117,23 +120,23 @@ Testing Library provides queries as methods for locating elements on the page. T
 ### Debugging
 
 #### screen.debug()
-- `screen.debug()` supports the following
+- `screen.debug()` supports the following:
 1. debugging the document: `screen.debug()` after a render call  
-2. a single element:  
+2. debugging a single element:  
 ```js
-    const button = screen.getByRole("button", {name: /submit/i})
-    screen.debug(button)
+  const button = screen.getByRole("button", {name: /submit/i})
+  screen.debug(button)
 ```  
-  3. an array of elements:  
+3. an array of elements:  
 ```js
-    const buttons = screen.getAllByRole("button")
-    screen.debug(buttons)
+  const buttons = screen.getAllByRole("button")
+  screen.debug(buttons)
 ```
-- run `yarn test` to see the rendered output of RTL's render in the terminal
+- run `yarn test` to see the rendered HTML output of the entire DOM or the specified DOM element in the terminal
 
 #### testing-playground  
-Testing Playground is an interactive sandbox that exposes visual feedback to include the rendered html of your current DOM, the DOM, and different queries about those DOM elements.
-- `screen.logTestingPlaygroundURL()`: method which logs and returns a URL that can be opened in a browser and supports the following:
+Testing Playground gives visual feedback through its interactive sandbox that exposes the rendered html output of your current DOM, the DOM as it appears in the browser, and different queries available for each DOM element.
+- `screen.logTestingPlaygroundURL()`: method that gives access to the testing-playground by logging a URL in the terminal for its applicable test suite and supports the following:
 1. log the entire document to testing-playground
 ```js
   screen.logTestingPlaygroundURL()
