@@ -16,7 +16,6 @@ describe("<Home />", () => {
   })
 
   it('renders jokes link', () => {
-  
     const linkElement = screen.getByRole('button', {
       name: /joyful snowman, complete with/i
     })
