@@ -2,7 +2,6 @@ import React from "react"
 import { Nav, NavItem } from "reactstrap"
 import { NavLink } from "react-router-dom"
 import limeFest from "../assets/lime-fest.png"
-import tealFest from "../assets/teal-fest.png"
 
 const Header = () => {
 

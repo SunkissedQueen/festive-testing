@@ -1,7 +1,5 @@
 import React from "react"
 import logo from "../assets/logo.png"
-import purpleLight from "../assets/purple.png"
-import redLight from "../assets/red.png"
 
 const Footer = () => {
 
@@ -14,7 +12,11 @@ const Footer = () => {
   return(
     <footer>
       <p>&copy; 2023 Syntactical Astronaut Production 
-        <img src={logo} style={imageStyle}/> 
+        <img 
+          src={logo} 
+          alt="circular christmas ornament with green and white curvy border and a red border in the middle with green and white dots" 
+          style={imageStyle}
+        /> 
         <a 
           target="blank" 
           href="https://www.linkedin.com/in/cmb-charlean-baxter"
@@ -23,7 +25,11 @@ const Footer = () => {
         >
           Contact Me
         </a>
-        <img src={logo} style={imageStyle}/> 
+        <img 
+          src={logo} 
+          alt="circular christmas ornament with green and white curvy border and a red border in the middle with green and white dots" 
+          style={imageStyle}
+        />  
       </p>
     </footer>
   )

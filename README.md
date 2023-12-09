@@ -6,8 +6,10 @@ The purpose of this React Single Page Application (SPA) is to deliver an engagin
 - [Resources](#resources)
 - [Application Process](#application-process)
 - [Testing Process](#testing-process)
+- [RTL Methods](#rtl-methods)
+- [Jest Matchers](#jest-matchers)
 - [Blockers](#blockers)
-- [Ice Box](#ice-box) ***Pending***
+- [Icebox](#icebox)
 
 ## Resources  
 - Knowledge and skills acquired from [LEARN Academy](https://learnacademy.org/)
@@ -24,6 +26,7 @@ The purpose of this React Single Page Application (SPA) is to deliver an engagin
 - [Jest DOM Matchers](https://github.com/testing-library/jest-dom#custom-matchers)
 - [Lemon Blueberry Dutch Baby Recipe](https://alexandracooks.com/2023/04/22/lemon-blueberry-dutch-baby/)
 - [Text Overlay on Video](https://www.codewithfaraz.com/content/207/create-full-screen-video-with-text-overlay-using-html-and-css)
+- [Markdown Syntax](https://www.markdownguide.org/extended-syntax/#:~:text=In%20Markdown%20applications%20that%20support,brackets%20(%20%5Bx%5D%20).)
 
 ## Application Process  
 - Created empty github repo
@@ -89,9 +92,11 @@ Testing Library provides queries as methods for locating elements on the page. T
     - getByTestId: last resort query because the id attribute is accessible by the user.  
   ***NOTE: All queries can be extended with `All` to search for multiple elements. `getAllByRole("button")`. This query will return an array of elements.***
 
-### Fire Event ***Pending***
-
-### User Event
+### APIs
+- The APIs (userEvent and fireEvent) are used to simulate user interactions. However, the userEvent mimics the actual browser behavior more closely than the fireEvent. In my experience, I prefer to use fireEvent with an input field and then make assertions to ensure that the React state has been updated as expected.   
+#### Fire Event <mark>***Pending***</mark>  
+- No examples currently available on this project.
+#### User Event
 - Import userEvent from testing library
 ```js
   import userEvent from "@testing-library/user-event";
@@ -167,5 +172,50 @@ Because this application used `yarn create react-app`, the jest-dom library is a
 3. Text to appear in front of the video (Need to see my jokes - solved):
   - In the excitement to have a video as the background,  I totally forgot to ensure the jokes would render with this setup. Answer: NO!!!! However, research, troubleshooting, debugging through the wonderful Google search engine lead me to an article with some helpful tips.
   - Solution use css to establish the text as the top layer of the page by using the transform property to modify the position of the text with the translate value to move the text higher on upon the Y axis.
+
+4. Very verbose warning message in testing suite about the nesting of an `<ul>` tag within a `<p>` tag (solved):
+  ![Testing Suite Warning](./src/assets/test-warning.png)
+  - Had to invoke ChatGPT to give a basic explanation because I certainly did not see a `<p>` tag in the following code:
+```js
+  <Card style={{
+    backgroundColor: "rgb(4, 193, 218)"
+  }}>
+    <CardBody>
+      <CardTitle tag="h5">
+        Ingredients
+      </CardTitle>
+        <CardText>
+          <ul className="line-items">
+            <li>4 tablespoons butter</li>
+            <li>1/2 cup milk</li>
+            <li>1/2 cup all-purpose flour</li>
+            <li>4 large eggs</li>
+            <li>3 tablespoons brown sugar</li>
+            <li>1 teaspoon vanilla</li>
+            <li>1/4 teaspoon salt</li>
+            <li>the zest of one lemon</li>
+            <li>1 cup blueberries</li>
+          </ul>
+        </CardText>
+    </CardBody>
+  </Card>
+```
+  - The issue arises from nesting elements within the CardText component. A block-level element like `<ol>` cannot be directly inside a text-level element like `<p>` or in my case `<CardText>`.
+  - Solution:
+    - removed CardText component
+
+## Icebox 
+<mark>***Pending***</mark>
+- [ ] Responsive page
+- [ ] User input
+- [ ] Fire Event
+- [ ] Database
+- [ ] Prevent overlapping of header
+- [ ] Color scheme
+- [ ] Animated logo on header
+- [ ] Presentation of answer after user interaction
+- [ ] Contact link visibility across different UI
+
+
 
 
