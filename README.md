@@ -154,14 +154,14 @@ Because this application used `yarn create react-app`, the jest-dom library is a
 - toBeChecked(): assert whether the given checkbox, radio, or switch element is checked.  
 
 ## Blockers
-1. Change header logo when hovering over it (solved):
+1. Change header logo when hovering over it:
   - After confusion with search results, I typed the following prompt in ChatGPT `how to change image when hovering with css inline styling for a react component`. The recommendation lead to a followup prompt `without functions`. The results showed an example that changed the height and width by abstracting the style value using an event handler.
   - Solution to change image:
     - Store initial styling for logo in a variable
     - Use the onMouseOver event handler, activated when the user's mouse pointer hovers over the image, to dynamically switch the src path to a new image. Achieve this by directly updating the src attribute of the image using e.target.src.
     - Use the onMouseOut event handler, activated when the user's mouse pointer leaves the area of the image, to dynamically switch the src path back to the original image. Achieve this by directly updating the src attribute of the image using e.target.src.
 
-2. Video as background (solved):
+2. Video as background:
   - When the video was uploaded as a mov file, it would only display as a static image. After researching on W3Schools for video html syntax, I noticed that the file on the example and type attribute had mp4.
   - Solution rename file and use video and source html tags:
     - Rename file with `.mp4` extension
@@ -169,11 +169,11 @@ Because this application used `yarn create react-app`, the jest-dom library is a
     - Nested source html tag with src and type attributes
     - External Css to make the video cover the full screen
 
-3. Text to appear in front of the video (Need to see my jokes - solved):
+3. Text to appear in front of the video (Need to see my jokes):
   - In the excitement to have a video as the background,  I totally forgot to ensure the jokes would render with this setup. Answer: NO!!!! However, research, troubleshooting, debugging through the wonderful Google search engine lead me to an article with some helpful tips.
   - Solution use css to establish the text as the top layer of the page by using the transform property to modify the position of the text with the translate value to move the text higher on upon the Y axis.
 
-4. Very verbose warning message in testing suite about the nesting of an `<ul>` tag within a `<p>` tag (solved):
+4. Very verbose warning message in testing suite about the nesting of an `<ul>` tag within a `<p>` tag:
   ![Testing Suite Warning](./src/assets/test-warning.png)
   - Had to invoke ChatGPT to give a basic explanation because I certainly did not see a `<p>` tag in the following code:
 ```js
@@ -202,7 +202,12 @@ Because this application used `yarn create react-app`, the jest-dom library is a
 ```
   - The issue arises from nesting elements within the CardText component. A block-level element like `<ol>` cannot be directly inside a text-level element like `<p>` or in my case `<CardText>`.
   - Solution:
-    - removed CardText component
+    - removed CardText component  
+
+5. Header hover logo image not consistently rendering to the navigation bar:
+  - Solution:
+    - Import image to the component 
+    - Update the image using react state
 
 ## Icebox 
 <mark>***Pending***</mark>
