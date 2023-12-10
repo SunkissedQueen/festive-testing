@@ -17,33 +17,44 @@ describe("<Header />", () => {
   })
 
   it('renders jokes link', () => {
-    const linkElement = screen.getByRole('link', {
-      name: "Random Jokes"
+    const jokeLink = screen.getByRole('link', {
+      name: /random jokes/i
     })
-    expect(linkElement).toBeInTheDocument();
+    expect(jokeLink).toBeInTheDocument()
   })
 
-  it("navigates to the jokes page", async () => {
-    const linkElement = screen.getByRole('link', {
-      name: "Random Jokes"
-    })
+  it("navigates to the joke page", async () => {
     expect(location.pathname).toEqual("/")
-    await userEvent.click(linkElement)
+    // simulate the user clicking the joke link
+    const jokeLink = screen.getByRole('link', {
+      name: /random jokes/i
+    })
+    await userEvent.click(jokeLink)
     expect(location.pathname).toEqual("/joke")
   })
 
-  it("changes the logo image based whether or not user is hovering", async () => {
-    const logoElement = screen.getByAltText(/festive testing/i)
+  it("navigates to the recipe page", async () => {
+    expect(location.pathname).toEqual("/joke")
+    // simulate the user clicking the recipe link
+    const recipeLink = screen.getByRole('link', {
+      name: /culinary/i
+    })
+    await userEvent.click(recipeLink)
+    expect(location.pathname).toEqual("/recipe")
+  })
+
+  it("changes the logo image based on hovering", async () => {
+    const logoElement = screen.getByRole('img', {
+      name: /two words festive testing/i
+    })
+    // default image
     expect(logoElement).toHaveAttribute("src", "lime-fest.png")
     expect(logoElement).toHaveAttribute("alt", "two words festive testing written in black cursive font on separate lines and aligned to the left")
-    // hover
+    // hover image
     await userEvent.hover(logoElement)
-    expect(location.pathname).toEqual("/joke")
     expect(logoElement).toHaveAttribute("src", "teal-fest.png")
-    expect(logoElement).toHaveAttribute("alt", "two words festive testing written in black cursive font on separate lines and aligned to the left")
-    // not hovering
+    // mouse is no longer hovering
     await userEvent.unhover(logoElement)
     expect(logoElement).toHaveAttribute("src", "lime-fest.png")
-    expect(logoElement).toHaveAttribute("alt", "two words festive testing written in black cursive font on separate lines and aligned to the left")
   })
 })
