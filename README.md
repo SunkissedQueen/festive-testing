@@ -104,11 +104,12 @@ Testing Library provides queries as methods for locating elements on the page. T
 ```js
   import userEvent from "@testing-library/user-event";
 ```
-- Add async to call back function for userEvent
+- To allow test to wait for navigation request to happen, async and await will be added to the test case
+- Add async to call back function
 ```js
   it("navigates to the jokes page", async () => { ... }
 ```
-- Add await to allow redirect to happen after clicking link
+- Add await to the userEvent within the it block 
 ```js
   await userEvent.click(linkElement)
 ```
