@@ -1,6 +1,6 @@
 # Festive Testing App  
 
-The purpose of this React Application is to deliver an engaging experience with a dynamic joke randomizer and a delicious Dutch baby recipe. This laughter-filled and decadent approach demonstrates React's ability to present detailed and interactive content. To ensure reliability and functionality of this application, I've enlisted the help of the enclosed Jest and React Testing Library (RTL). This superhero and its sidekick ensure this web application works as intended. Whether you're clicking for a new joke or exploring a mouth-watering recipe, the both Jest and the React Testing Library are behind the scenes, making sure the app responds correctly and that the joke randomizer and recipe components shine without hiccups!
+The purpose of this React Application is to deliver an engaging experience with a dynamic joke randomizer and a delicious Dutch baby recipe. This laughter-filled and decadent approach demonstrates React's ability to present detailed and interactive content. To ensure reliability and functionality of this application, I've enlisted the help of the enclosed Jest and React Testing Library (RTL). This superhero and its sidekick ensure this web application works as intended. Whether you're clicking for a new joke or exploring a mouth-watering recipe, both Jest and the React Testing Library are behind the scenes, making sure the app responds correctly and that the joke randomizer and recipe components shine without hiccups!
 
 ## Table of Contents
 - [Resources](#resources)
